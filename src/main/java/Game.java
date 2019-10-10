@@ -11,15 +11,24 @@ public class Game {
     }
 
     public String compareCards(){
-        int player1CardValue = this.player1.firstCardValueinHand();
-        int player2CardValue = this.player2.firstCardValueinHand();
-        String winnerMsg = "";
-        if(player1CardValue > player2CardValue){
+        int player1CardRankValue = this.player1.firstCardRankValueInHand();
+        int player2CardRankValue = this.player2.firstCardRankValueInHand();
+
+        int player1CardSuitValue = this.player1.firstCardSuitValueinHand();
+        int player2CardSuitValue = this.player2.firstCardSuitValueinHand();
+
+        String winnerMsg;
+
+        if(player1CardRankValue > player2CardRankValue){
             winnerMsg = "Player 1 is The WINNER";
-        } else if (player2CardValue > player1CardValue){
+        } else if (player2CardRankValue > player1CardRankValue){
             winnerMsg = "Player 2 is The WINNER";
         }else {
-            winnerMsg = "It is a Draw";
+                if(player1CardSuitValue > player2CardSuitValue){
+                    winnerMsg = "Player 1 is The WINNER";
+                } else {
+                    winnerMsg = "Player 2 is The WINNER";
+                }
         }
         return winnerMsg;
     }

@@ -16,9 +16,14 @@ public class Player {
         this.hand.add(card);
     }
 
-    public int firstCardValueinHand(){
+    public int firstCardRankValueInHand(){
         Card firstCard = this.hand.get(0);
         return firstCard.getRank().getValue();
+    }
+
+    public int firstCardSuitValueinHand(){
+        Card firstCard = this.hand.get(0);
+        return firstCard.getSuit().getValue();
     }
 
 }
