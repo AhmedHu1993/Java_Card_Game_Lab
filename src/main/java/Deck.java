@@ -1,4 +1,8 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Deck {
 
@@ -21,7 +25,7 @@ public class Deck {
         return suits.length;
     }
 
-    public void CreateDeckOfCards(){
+    public ArrayList createDeckOfCards(){
         SuitType[] suits = SuitType.values();
         RankType[] ranks = RankType.values();
 
@@ -31,5 +35,18 @@ public class Deck {
                 this.addCardToDeck(card);
             }
         }
+        return this.deckOfCards;
+    }
+
+    public ArrayList createShuffledDeckOfCards(){
+       ArrayList<Card> cards = this.createDeckOfCards();
+
+//       List shuffledList  = Arrays.asList(unShuffledCards);
+
+       Collections.shuffle(cards);
+
+//       ArrayList<Card> shuffledArray = shuffledList.toArray();
+
+       return cards;
     }
 }

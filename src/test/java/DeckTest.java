@@ -26,13 +26,18 @@ public class DeckTest {
     }
 
     @Test
-    public void CanGetArrayOfSuits(){
+    public void canGetArrayOfSuits(){
         assertEquals(4, deck.getSuitsArray());
     }
 
     @Test
-    public void CanPopulateDeckOfCards(){
-        deck.CreateDeckOfCards();
+    public void canPopulateDeckOfCards(){
+        deck.createDeckOfCards();
         assertEquals(52, deck.getDeckOfCardsCount());
+    }
+
+    @Test
+    public void canShuffleCards(){
+        assertEquals(52,deck.createShuffledDeckOfCards().size());
     }
 }
