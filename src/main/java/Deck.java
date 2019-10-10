@@ -1,15 +1,15 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collections;
-import java.util.List;
 
 public class Deck {
 
     private ArrayList<Card> deckOfCards;
+    private ArrayList<Card> shuffledDeck;
 
     public Deck(){
         this.deckOfCards = new ArrayList<Card>();
+        this.shuffledDeck = new ArrayList<Card>();
     }
 
     public int getDeckOfCardsCount(){
@@ -38,15 +38,18 @@ public class Deck {
         return this.deckOfCards;
     }
 
-    public ArrayList createShuffledDeckOfCards(){
-       ArrayList<Card> cards = this.createDeckOfCards();
+    public void createShuffledDeckOfCards(){
+       this.shuffledDeck = this.createDeckOfCards();
+       Collections.shuffle(shuffledDeck);
+    }
 
-//       List shuffledList  = Arrays.asList(unShuffledCards);
+    public void drawCadFromDeckToPlayer(Player player){
+//        ArrayList<Card> shuffledCards = this.createShuffledDeckOfCards();
+        Card removedCard = this.shuffledDeck.remove(0);
+        player.addCardToHand(removedCard);
+    }
 
-       Collections.shuffle(cards);
-
-//       ArrayList<Card> shuffledArray = shuffledList.toArray();
-
-       return cards;
+    public ArrayList getShuffledDeck() {
+        return this.shuffledDeck;
     }
 }

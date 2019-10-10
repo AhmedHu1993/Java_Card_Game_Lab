@@ -15,4 +15,5 @@ public class Player {
     public void addCardToHand(Card card){
         this.hand.add(card);
     }
+
 }
