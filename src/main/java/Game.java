@@ -17,20 +17,16 @@ public class Game {
         int player1CardSuitValue = this.player1.firstCardSuitValueinHand();
         int player2CardSuitValue = this.player2.firstCardSuitValueinHand();
 
-        String winnerMsg;
-
         if(player1CardRankValue > player2CardRankValue){
-            winnerMsg = "Player 1 is The WINNER";
+            return  "Player 1 is The WINNER";
         } else if (player2CardRankValue > player1CardRankValue){
-            winnerMsg = "Player 2 is The WINNER";
-        }else {
+            return "Player 2 is The WINNER";
+        } else {
                 if(player1CardSuitValue > player2CardSuitValue){
-                    winnerMsg = "Player 1 is The WINNER";
-                } else {
-                    winnerMsg = "Player 2 is The WINNER";
+                    return  "Player 1 is The WINNER";
                 }
+                return  "Player 2 is The WINNER";
         }
-        return winnerMsg;
     }
 
     public String playTheGame(){
